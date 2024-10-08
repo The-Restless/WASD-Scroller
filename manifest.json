@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+  "name": "WASD Scroller",
+  "version": "1.0",
+  "description": "Scroll pages using W, A, S, D keys.",
+  "permissions": ["<all_urls>"],
+  "icons": {
+    "48": "icons/wasd-48.png",
+    "96": "icons/wasd-96.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["app.js"]
+    }
+  ],
+  "background": {
+    "scripts": ["background_scripts/background.js"]
+  }
+}
