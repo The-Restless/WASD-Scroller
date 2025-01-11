@@ -3,7 +3,7 @@
   "name": "WASD Scroller",
   "version": "1.0",
   "description": "Scroll pages using W, A, S, D keys.",
-  "permissions": ["<all_urls>"],
+  "permissions": ["<all_urls>", "storage"],
   "icons": {
     "48": "icons/wasd-48.png",
     "96": "icons/wasd-96.png"
@@ -11,10 +11,12 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["app.js"]
+      "js": ["app.js"],
+      "all_frames": true
     }
   ],
   "background": {
     "scripts": ["background_scripts/background.js"]
-  }
+  },
+  "content_security_policy": "script-src 'self'; object-src 'self';"
 }
