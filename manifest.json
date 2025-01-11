@@ -3,6 +3,11 @@
   "name": "WASD Scroller",
   "version": "1.1",
   "description": "Scroll pages using W, A, S, D keys.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "8ea3c5b2-79d4-4c7d-8451-54eaf0edce19"
+    }
+  },
   "permissions": ["storage", "tabs"],
   "host_permissions": ["<all_urls>"],
   "icons": {
