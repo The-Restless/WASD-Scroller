@@ -5,7 +5,7 @@
   "description": "Scroll pages using W, A, S, D keys.",
   "browser_specific_settings": {
     "gecko": {
-      "id": "wasd-scroller@mozilla.org"
+      "id": "{9b547e46-7007-4e0c-895a-0488204535b8}"
     }
   },
   "permissions": ["storage", "tabs"],
