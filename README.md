@@ -1,0 +1,1 @@
+Hey, this is a quick add-on for Firefox to allow scrolling with W A S D keys. With Q and E also, Q to decrease scroll speed and E to increase it. Scroll speed's saved and adjusted across tabs and windows without having to refresh or re-ajust per page.
