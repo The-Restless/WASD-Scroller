@@ -1,4 +1,4 @@
-let scrollStep = 50; // Default scroll speed
+let scrollStep = 150; // Default scroll speed
 
 // Load scroll speed from storage and update immediately
 browser.storage.local.get("scrollStep").then((data) => {
@@ -81,10 +81,17 @@ function scrollPage(x, y) {
 
 // Function to check if the element is editable
 function isEditable(element) {
+  // Check if the element is in a shadow DOM
+  while (element && element.shadowRoot) {
+    element = element.shadowRoot.activeElement;
+  }
+
+  // Check if the element is content-editable or a form input
   return (
-    element.isContentEditable ||
-    ["INPUT", "TEXTAREA", "SELECT"].includes(element.tagName) ||
-    element.closest("fieldset") !== null
+    element &&
+    (element.isContentEditable ||
+      ["INPUT", "TEXTAREA", "SELECT"].includes(element.tagName) ||
+      element.closest("fieldset") !== null)
   );
 }
 
@@ -92,8 +99,11 @@ function isEditable(element) {
 document.addEventListener(
   "keydown",
   (event) => {
-    if (isEditable(event.target)) {
-      return; // Don't interfere with editable elements
+    const activeElement = document.activeElement;
+
+    // Skip if the target is an editable element
+    if (isEditable(activeElement)) {
+      return;
     }
 
     // Handle scroll keys
